@@ -274,6 +274,35 @@ footer a:hover{color:var(--ink)}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
+/* ---------- the lab (repo archive) ---------- */
+.lab{margin-top:110px}
+.lab-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.lab-head h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,48px);letter-spacing:-.03em;line-height:1.05}
+.lab-head h3 em{font-style:italic;font-weight:300;color:var(--muted)}
+.lab-head p{color:var(--muted);font-size:15px;max-width:520px;margin-top:10px}
+.lab-count{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+.lab-count b{color:var(--ink);font-weight:500}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:30px 0 22px}
+.filters button{font:500 13px var(--sans);color:var(--muted);background:var(--card);border:1px solid var(--line);padding:8px 15px;border-radius:999px;cursor:pointer;transition:.2s;display:inline-flex;gap:8px;align-items:center}
+.filters button:hover{color:var(--ink);border-color:rgba(255,255,255,.2)}
+.filters button i{width:7px;height:7px;border-radius:50%;background:var(--k,var(--ink))}
+.filters button small{font-family:var(--mono);font-size:11px;opacity:.6}
+.filters button.on{background:var(--ink);color:#0a0a10;border-color:var(--ink)}
+.repos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:980px){.repos{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.repos{grid-template-columns:1fr}}
+.repo{display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card);transition:transform .3s,border-color .3s,background .3s;animation:repoIn .5s cubic-bezier(.2,.8,.2,1) both}
+.repo:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--k) 55%,transparent);background:var(--card2)}
+.repo.hide{display:none}
+@keyframes repoIn{from{opacity:0;transform:translateY(14px)}}
+.repo .rt{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--k)}
+.repo .rt span{color:var(--dim);transition:color .3s,transform .3s}
+.repo:hover .rt span{color:var(--ink);transform:translate(2px,-2px)}
+.repo h5{font-family:var(--serif);font-weight:400;font-size:21px;letter-spacing:-.02em;line-height:1.15}
+.repo p{font-size:14px;color:var(--muted);line-height:1.55}
+.repo .m{font-family:var(--mono);font-size:12px;color:var(--ink);padding:6px 10px;border-radius:8px;background:color-mix(in srgb,var(--k) 12%,transparent);border:1px solid color-mix(in srgb,var(--k) 30%,transparent);align-self:flex-start}
+.repo .stack{margin-top:auto;padding-top:6px}
+.lab-more{display:flex;justify-content:center;margin-top:30px}
 </style>
 </head>
 <body>
@@ -283,6 +312,7 @@ footer a:hover{color:var(--ink)}
   <div class="navlinks">
     <a href="#combo">The Combo</a>
     <a href="#work">Work</a>
+    <a href="#lab">Lab</a>
     <a href="#depth">Depth</a>
     <a href="#journey">Journey</a>
   </div>
@@ -488,6 +518,164 @@ footer a:hover{color:var(--ink)}
           <a class="ext" href="https://github.com/sanskreate/E-COM_BigDataAnalytics" target="_blank" rel="noopener">View on GitHub ↗</a>
         </article>
       </div>
+    </div>
+
+    <!-- ================= THE LAB ================= -->
+    <div class="lab" id="lab">
+      <div class="lab-head reveal">
+        <div>
+          <h3>The lab. <em>Everything else I've built.</em></h3>
+          <p>AI, machine learning, data engineering, BI and IoT, built across healthcare, telecom, energy, finance, retail and accessibility.</p>
+        </div>
+        <div class="lab-count"><span><b>33</b> public repos</span><span><b>+</b> private production work</span></div>
+      </div>
+
+      <div class="filters reveal" role="tablist" aria-label="Filter projects">
+        <button class="on" data-f="all">All <small></small></button>
+        <button data-f="ai" style="--k:var(--ai)"><i></i>AI &amp; LLMs <small></small></button>
+        <button data-f="ml" style="--k:var(--lead)"><i></i>ML &amp; Vision <small></small></button>
+        <button data-f="data" style="--k:var(--data)"><i></i>Data Eng &amp; SQL <small></small></button>
+        <button data-f="bi" style="--k:var(--biz)"><i></i>Analytics &amp; BI <small></small></button>
+        <button data-f="iot" style="--k:#7ee0a1"><i></i>Automation &amp; IoT <small></small></button>
+      </div>
+
+      <div class="repos" id="repos">
+        <a class="repo" data-c="ai" style="--k:var(--ai)" href="https://github.com/sanskreate/Freeform_TextGeneration" target="_blank" rel="noopener">
+          <div class="rt">Generative AI<span>↗</span></div>
+          <h5>FreeForm Long Text Generation</h5>
+          <p>Writes 750–2,000-word long-form content on Llama 3.1, using two custom algorithms (DCKG and DMK) that pull out domain keywords and guarantee they appear.</p>
+          <div class="m">100% keyword enforcement</div>
+          <div class="stack"><span>Llama 3.1</span><span>FastAPI</span><span>Streamlit</span></div>
+        </a>
+        <a class="repo" data-c="ai" style="--k:var(--ai)" href="https://github.com/sanskreate/langgraph_agent" target="_blank" rel="noopener">
+          <div class="rt">AI agents<span>↗</span></div>
+          <h5>LangGraph Agent</h5>
+          <p>A graph-based agent with tool calling (web search and custom Python tools), memory across conversations, streaming, and human-in-the-loop escalation.</p>
+          <div class="m">tools · memory · human feedback</div>
+          <div class="stack"><span>LangGraph</span><span>LangChain</span><span>Python</span></div>
+        </a>
+        <a class="repo" data-c="ml" style="--k:var(--lead)" href="https://github.com/sanskreate/ISL-detection-with-LSTM" target="_blank" rel="noopener">
+          <div class="rt">Computer vision · Accessibility<span>↗</span></div>
+          <h5>Indian Sign Language Recognition</h5>
+          <p>Word-level ISL recognition from video. MediaPipe tracks body keypoints across 45 frames, and an LSTM turns the motion into words, to help deaf users communicate.</p>
+          <div class="m">video → keypoints → LSTM → words</div>
+          <div class="stack"><span>MediaPipe</span><span>TensorFlow/Keras</span><span>OpenCV</span><span>FastAPI</span></div>
+        </a>
+        <a class="repo" data-c="ml" style="--k:var(--lead)" href="https://github.com/sanskreate/Customer_Churn_Analysis" target="_blank" rel="noopener">
+          <div class="rt">Telecom · Predictive ML<span>↗</span></div>
+          <h5>Customer Churn Prediction</h5>
+          <p>Predicts which telecom customers are about to leave from usage and service behaviour, and turns that into targeted retention strategies.</p>
+          <div class="m">97% precision · 96% F1</div>
+          <div class="stack"><span>Scikit-learn</span><span>Pandas</span><span>Seaborn</span></div>
+        </a>
+        <a class="repo" data-c="ml" style="--k:var(--lead)" href="https://github.com/sanskreate/EV_Charging_Demand_Forecasting" target="_blank" rel="noopener">
+          <div class="rt">Energy · Time series<span>↗</span></div>
+          <h5>EV Charging Demand Forecasting</h5>
+          <p>Forecasts EV charging demand in Palo Alto using weather and traffic as extra signals, then recommends where to add capacity.</p>
+          <div class="m">Prophet + weather + traffic</div>
+          <div class="stack"><span>Prophet</span><span>Statsmodels</span><span>Meteostat</span></div>
+        </a>
+        <a class="repo" data-c="ml" style="--k:var(--lead)" href="https://github.com/sanskreate/musicmood" target="_blank" rel="noopener">
+          <div class="rt">Audio · Distributed ML<span>↗</span></div>
+          <h5>MusicMood</h5>
+          <p>Classifies songs as happy, sad, energetic or calm from audio features (danceability, energy, valence, tempo) with Spark MLlib.</p>
+          <div class="m">Random Forest on Apache Spark</div>
+          <div class="stack"><span>PySpark</span><span>MLlib</span></div>
+        </a>
+        <a class="repo" data-c="ai" style="--k:var(--ai)" href="https://github.com/sanskreate/sih-makemodelapi" target="_blank" rel="noopener">
+          <div class="rt">Deployed API · SIH 2024<span>↗</span></div>
+          <h5>SIH Make &amp; Model ML API</h5>
+          <p>The machine-learning API behind our Smart India Hackathon 2024 entry, deployed and live on Render.</p>
+          <div class="m">live at sih-ml-api.onrender.com</div>
+          <div class="stack"><span>FastAPI</span><span>MongoDB</span><span>RapidFuzz</span><span>Render</span></div>
+        </a>
+        <a class="repo" data-c="data" style="--k:var(--data)" href="https://github.com/sanskreate/ecommercedatabase" target="_blank" rel="noopener">
+          <div class="rt">Database design<span>↗</span></div>
+          <h5>E-Commerce Database</h5>
+          <p>A full PostgreSQL e-commerce database, from ERD and schema to data loading and advanced analytical queries across customers, products, orders, vendors and couriers.</p>
+          <div class="m">schema → ERD → analytics</div>
+          <div class="stack"><span>PostgreSQL</span><span>pgAdmin</span><span>SQL</span></div>
+        </a>
+        <a class="repo" data-c="data" style="--k:var(--data)" href="https://github.com/sanskreate/SalesTrendAnalysis_SQL" target="_blank" rel="noopener">
+          <div class="rt">SQL analytics<span>↗</span></div>
+          <h5>Orders Analytics in PostgreSQL</h5>
+          <p>Revenue trends, customer behaviour, product performance and time-based breakdowns, all in SQL over an order-tracking database.</p>
+          <div class="m">revenue · customers · products · time</div>
+          <div class="stack"><span>PostgreSQL</span><span>SQL</span></div>
+        </a>
+        <a class="repo" data-c="data" style="--k:var(--data)" href="https://github.com/sanskreate/PY-SQLconnection" target="_blank" rel="noopener">
+          <div class="rt">Python × SQL<span>↗</span></div>
+          <h5>Sales Analysis with Python + SQLite</h5>
+          <p>Builds a sales database, runs analytical SQL from Python, and charts the results as bar charts, pie charts and heatmaps.</p>
+          <div class="m">SQL → Pandas → visuals</div>
+          <div class="stack"><span>SQLite</span><span>Pandas</span><span>Matplotlib</span></div>
+        </a>
+        <a class="repo" data-c="data" style="--k:var(--data)" href="https://github.com/sanskreate/Data-Cleaning-and-Preprocessing" target="_blank" rel="noopener">
+          <div class="rt">Data preparation<span>↗</span></div>
+          <h5>Customer Personality: Cleaning &amp; Features</h5>
+          <p>Cleaning, feature engineering and outlier detection on customer demographics and spending, ready for segmentation and campaign targeting.</p>
+          <div class="m">raw → model-ready</div>
+          <div class="stack"><span>Pandas</span><span>NumPy</span><span>Seaborn</span></div>
+        </a>
+        <a class="repo" data-c="iot" style="--k:#7ee0a1" href="https://github.com/sanskreate/GoogleSpreadsheetAutomation" target="_blank" rel="noopener">
+          <div class="rt">Automation<span>↗</span></div>
+          <h5>Google Sheets Auto-Updater</h5>
+          <p>Reads large CSVs, pivots the key metrics and refreshes a stakeholder dashboard in Google Sheets on a schedule. It costs nothing to run.</p>
+          <div class="m">cron-scheduled · Google Sheets API</div>
+          <div class="stack"><span>Python</span><span>Google Sheets API</span></div>
+        </a>
+        <a class="repo" data-c="iot" style="--k:#7ee0a1" href="https://github.com/sanskreate/sports_tournament" target="_blank" rel="noopener">
+          <div class="rt">Data collection<span>↗</span></div>
+          <h5>Tournament Data Scraper</h5>
+          <p>Collects sports events from APIs, static pages, JavaScript-heavy sites and RSS feeds, and falls back gracefully when a source goes down.</p>
+          <div class="m">4 source types · auto-fallback</div>
+          <div class="stack"><span>SportMonks API</span><span>Selenium</span><span>BeautifulSoup</span></div>
+        </a>
+        <a class="repo" data-c="iot" style="--k:#7ee0a1" href="https://github.com/sanskreate/SmartBin" target="_blank" rel="noopener">
+          <div class="rt">IoT · Smart city<span>↗</span></div>
+          <h5>SmartBin</h5>
+          <p>An IoT dustbin dashboard. Bins report their fill level and moisture through a REST API, and the web dashboard tracks them live.</p>
+          <div class="m">deployed on PythonAnywhere</div>
+          <div class="stack"><span>IoT</span><span>REST API</span><span>Python</span></div>
+        </a>
+        <a class="repo" data-c="bi" style="--k:var(--biz)" href="https://github.com/sanskreate/cryptocurrency_dashboard" target="_blank" rel="noopener">
+          <div class="rt">Finance · Forecasting<span>↗</span></div>
+          <h5>Cryptocurrency Dashboard</h5>
+          <p>Market cap, volume, volatility and ROI from 2013 to 2021, with forecasts through 2024, built for investment decisions.</p>
+          <div class="m">8 yrs history + 3 yrs forecast</div>
+          <div class="stack"><span>Power BI</span><span>DAX</span><span>Forecasting</span></div>
+        </a>
+        <a class="repo" data-c="bi" style="--k:var(--biz)" href="https://github.com/sanskreate/EDA_WorldBankData_IND_CHN" target="_blank" rel="noopener">
+          <div class="rt">Economics · EDA<span>↗</span></div>
+          <h5>India vs China: World Bank Data</h5>
+          <p>25 years (1999–2023) of development indicators. It shows India's renewable energy share is strongly linked to lower CO₂ emissions.</p>
+          <div class="m">r = −0.92 renewables vs CO₂</div>
+          <div class="stack"><span>Pandas</span><span>Statistics</span><span>Seaborn</span></div>
+        </a>
+        <a class="repo" data-c="bi" style="--k:var(--biz)" href="https://github.com/sanskreate/CoffeeSalesFinancialAnalysis" target="_blank" rel="noopener">
+          <div class="rt">Financial BI<span>↗</span></div>
+          <h5>Coffee Sales &amp; Financial Dashboard</h5>
+          <p>Sales, profit margins, cost of goods and inventory for a coffee chain, presented as an executive deck with recommendations.</p>
+          <div class="m">P&amp;L · margins · inventory</div>
+          <div class="stack"><span>Power BI</span><span>Excel</span></div>
+        </a>
+        <a class="repo" data-c="bi" style="--k:var(--biz)" href="https://github.com/sanskreate/SalesDashboard" target="_blank" rel="noopener">
+          <div class="rt">Sales BI<span>↗</span></div>
+          <h5>Superstore Sales Dashboard</h5>
+          <p>Cleaned the data in Python, then built Power BI views of sales trends, profitability, regions and products.</p>
+          <div class="m">Jupyter → Power BI</div>
+          <div class="stack"><span>Power BI</span><span>Pandas</span></div>
+        </a>
+        <a class="repo" data-c="bi" style="--k:var(--biz)" href="https://github.com/sanskreate/SuperStore-Dashboard" target="_blank" rel="noopener">
+          <div class="rt">Data storytelling<span>↗</span></div>
+          <h5>Superstore Story in Tableau</h5>
+          <p>Interactive Tableau dashboards that turn sales, profit, discounts and regional trends into a story stakeholders can follow.</p>
+          <div class="m">interactive storytelling</div>
+          <div class="stack"><span>Tableau</span></div>
+        </a>
+      </div>
+
+      <div class="lab-more reveal"><a class="btn g" href="https://github.com/sanskreate?tab=repositories" target="_blank" rel="noopener">See all repositories on GitHub ↗</a></div>
     </div>
   </div>
 </section>
@@ -844,6 +1032,26 @@ footer a:hover{color:var(--ink)}
   });
   setPreset(0); draw();
   let pAuto = reduce ? null : setInterval(() => setPreset((pi + 1) % P.length), 3200);
+})();
+</script>
+<script>
+/* lab filters */
+(() => {
+  const btns = document.querySelectorAll('.filters button');
+  const repos = document.querySelectorAll('#repos .repo');
+  btns.forEach(b => {
+    const f = b.dataset.f;
+    b.querySelector('small').textContent = f === 'all' ? repos.length : [...repos].filter(r => r.dataset.c === f).length;
+    b.addEventListener('click', () => {
+      btns.forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      repos.forEach(r => {
+        const show = f === 'all' || r.dataset.c === f;
+        r.classList.toggle('hide', !show);
+        if (show) { r.style.animation = 'none'; r.offsetHeight; r.style.animation = ''; }
+      });
+    });
+  });
 })();
 </script>
 </body>
