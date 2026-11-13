@@ -79,7 +79,7 @@ h1 .u{background-image:linear-gradient(var(--c),var(--c));background-repeat:no-r
 .stat{padding:22px 22px 20px;border-right:1px solid var(--line)}
 .stat:last-child{border-right:0}
 .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,44px);letter-spacing:-.03em;line-height:1}
-.stat span{display:block;font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+.stat>span{display:block;font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.stat{border-bottom:1px solid var(--line)}.stat:nth-child(2n){border-right:0}.stat:last-child{grid-column:1/-1;border-bottom:0}}
 .scrollhint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--dim);display:flex;flex-direction:column;align-items:center;gap:10px}
 .scrollhint i{width:1px;height:38px;background:linear-gradient(var(--muted),transparent);animation:drop 2.2s infinite}
